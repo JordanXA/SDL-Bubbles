@@ -6,7 +6,10 @@ set(CMAKE_CXX_FLAGS "-g -Werror -std=c++11")
 
 add_compile_definitions(DEBUG)
 
-include_directories(include)
+include_directories(include/**)
+
+find_package(SDL2 REQUIRED)
+include_directories(${SDL2_INCLUDE_DIRS})
 
 if(WIN32)
     link_directories(libWindows)
@@ -26,7 +29,7 @@ add_executable(
 )
 
 if(WIN32)
-target_link_libraries(Build )
+target_link_libraries(Build ${SDL2_LIBRARIES} )
 endif()
 
 #[[ old

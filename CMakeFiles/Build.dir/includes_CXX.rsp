@@ -1,1 +1,1 @@
--ID:/SDL-Bubbles/include 
+-ID:/SDL-Bubbles/include/** -I/opt/local/x86_64-w64-mingw32/include/SDL2 
