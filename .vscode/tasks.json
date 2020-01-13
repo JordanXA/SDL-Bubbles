@@ -3,7 +3,7 @@
         {
             "type": "shell",
             "label": "Build",
-            "command": "mingw32-make",
+            "command": "./build.ps1",
             "args": [
                 ""
             ],
@@ -30,7 +30,7 @@
         {
             "type": "shell",
             "label": "Run",
-            "command": "Build.exe",
+            "command": "./Build.exe",
             "options": {
                 "cwd": "${workspaceFolder}"
             }
