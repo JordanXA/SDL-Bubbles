@@ -29,7 +29,7 @@ add_executable(
 )
 
 if(WIN32)
-target_link_libraries(Build ${SDL2_LIBRARIES} )
+target_link_libraries(Build ${SDL2_LIBRARIES} SDL2_image )
 endif()
 
 #[[ old

@@ -9,6 +9,20 @@
 D:/SDL-Bubbles/src/Main.cpp
 iostream
 -
+fstream
+-
 SDL.h
 D:/SDL-Bubbles/src/SDL.h
+SDL_image.h
+D:/SDL-Bubbles/src/SDL_image.h
+Object.hpp
+D:/SDL-Bubbles/src/Object.hpp
+
+D:/SDL-Bubbles/src/Object.hpp
+SDL.h
+D:/SDL-Bubbles/src/SDL.h
+Vector2f.hpp
+D:/SDL-Bubbles/src/Vector2f.hpp
+
+D:/SDL-Bubbles/src/Vector2f.hpp
 
