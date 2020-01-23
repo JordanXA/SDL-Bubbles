@@ -41,8 +41,7 @@ int main(int argc, char** argv) {
     SharedTexture tylerTexture = make_shared(loadTexture("tyler.bmp"));
     Drawable tylerObject = Drawable();
     tylerObject.position = Vector2f{96,96};
-    tylerObject.tempWH = Vector2i{96,96};
-    tylerObject.setTexture(tylerTexture);
+    tylerObject.setTexture(tylerTexture, 96, 96);
 
     while(!quit) {
         
