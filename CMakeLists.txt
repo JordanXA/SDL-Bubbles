@@ -26,6 +26,9 @@ endif()
 add_executable(
     Build
     src/Main.cpp
+    src/Drawable.cpp
+    src/Object.cpp
+    src/Player.cpp
 )
 
 if(WIN32)

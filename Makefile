@@ -122,6 +122,33 @@ Build/fast:
 	$(MAKE) -f CMakeFiles\Build.dir\build.make CMakeFiles/Build.dir/build
 .PHONY : Build/fast
 
+src/Drawable.obj: src/Drawable.cpp.obj
+
+.PHONY : src/Drawable.obj
+
+# target to build an object file
+src/Drawable.cpp.obj:
+	$(MAKE) -f CMakeFiles\Build.dir\build.make CMakeFiles/Build.dir/src/Drawable.cpp.obj
+.PHONY : src/Drawable.cpp.obj
+
+src/Drawable.i: src/Drawable.cpp.i
+
+.PHONY : src/Drawable.i
+
+# target to preprocess a source file
+src/Drawable.cpp.i:
+	$(MAKE) -f CMakeFiles\Build.dir\build.make CMakeFiles/Build.dir/src/Drawable.cpp.i
+.PHONY : src/Drawable.cpp.i
+
+src/Drawable.s: src/Drawable.cpp.s
+
+.PHONY : src/Drawable.s
+
+# target to generate assembly for a file
+src/Drawable.cpp.s:
+	$(MAKE) -f CMakeFiles\Build.dir\build.make CMakeFiles/Build.dir/src/Drawable.cpp.s
+.PHONY : src/Drawable.cpp.s
+
 src/Main.obj: src/Main.cpp.obj
 
 .PHONY : src/Main.obj
@@ -149,6 +176,60 @@ src/Main.cpp.s:
 	$(MAKE) -f CMakeFiles\Build.dir\build.make CMakeFiles/Build.dir/src/Main.cpp.s
 .PHONY : src/Main.cpp.s
 
+src/Object.obj: src/Object.cpp.obj
+
+.PHONY : src/Object.obj
+
+# target to build an object file
+src/Object.cpp.obj:
+	$(MAKE) -f CMakeFiles\Build.dir\build.make CMakeFiles/Build.dir/src/Object.cpp.obj
+.PHONY : src/Object.cpp.obj
+
+src/Object.i: src/Object.cpp.i
+
+.PHONY : src/Object.i
+
+# target to preprocess a source file
+src/Object.cpp.i:
+	$(MAKE) -f CMakeFiles\Build.dir\build.make CMakeFiles/Build.dir/src/Object.cpp.i
+.PHONY : src/Object.cpp.i
+
+src/Object.s: src/Object.cpp.s
+
+.PHONY : src/Object.s
+
+# target to generate assembly for a file
+src/Object.cpp.s:
+	$(MAKE) -f CMakeFiles\Build.dir\build.make CMakeFiles/Build.dir/src/Object.cpp.s
+.PHONY : src/Object.cpp.s
+
+src/Player.obj: src/Player.cpp.obj
+
+.PHONY : src/Player.obj
+
+# target to build an object file
+src/Player.cpp.obj:
+	$(MAKE) -f CMakeFiles\Build.dir\build.make CMakeFiles/Build.dir/src/Player.cpp.obj
+.PHONY : src/Player.cpp.obj
+
+src/Player.i: src/Player.cpp.i
+
+.PHONY : src/Player.i
+
+# target to preprocess a source file
+src/Player.cpp.i:
+	$(MAKE) -f CMakeFiles\Build.dir\build.make CMakeFiles/Build.dir/src/Player.cpp.i
+.PHONY : src/Player.cpp.i
+
+src/Player.s: src/Player.cpp.s
+
+.PHONY : src/Player.s
+
+# target to generate assembly for a file
+src/Player.cpp.s:
+	$(MAKE) -f CMakeFiles\Build.dir\build.make CMakeFiles/Build.dir/src/Player.cpp.s
+.PHONY : src/Player.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -158,9 +239,18 @@ help:
 	@echo ... Build
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... src/Drawable.obj
+	@echo ... src/Drawable.i
+	@echo ... src/Drawable.s
 	@echo ... src/Main.obj
 	@echo ... src/Main.i
 	@echo ... src/Main.s
+	@echo ... src/Object.obj
+	@echo ... src/Object.i
+	@echo ... src/Object.s
+	@echo ... src/Player.obj
+	@echo ... src/Player.i
+	@echo ... src/Player.s
 .PHONY : help
 
 

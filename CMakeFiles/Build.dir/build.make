@@ -70,19 +70,67 @@ CMakeFiles/Build.dir/src/Main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Build.dir/src/Main.cpp.s"
 	D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\SDL-Bubbles\src\Main.cpp -o CMakeFiles\Build.dir\src\Main.cpp.s
 
+CMakeFiles/Build.dir/src/Drawable.cpp.obj: CMakeFiles/Build.dir/flags.make
+CMakeFiles/Build.dir/src/Drawable.cpp.obj: CMakeFiles/Build.dir/includes_CXX.rsp
+CMakeFiles/Build.dir/src/Drawable.cpp.obj: src/Drawable.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\SDL-Bubbles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Build.dir/src/Drawable.cpp.obj"
+	D:\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Build.dir\src\Drawable.cpp.obj -c D:\SDL-Bubbles\src\Drawable.cpp
+
+CMakeFiles/Build.dir/src/Drawable.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Build.dir/src/Drawable.cpp.i"
+	D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\SDL-Bubbles\src\Drawable.cpp > CMakeFiles\Build.dir\src\Drawable.cpp.i
+
+CMakeFiles/Build.dir/src/Drawable.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Build.dir/src/Drawable.cpp.s"
+	D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\SDL-Bubbles\src\Drawable.cpp -o CMakeFiles\Build.dir\src\Drawable.cpp.s
+
+CMakeFiles/Build.dir/src/Object.cpp.obj: CMakeFiles/Build.dir/flags.make
+CMakeFiles/Build.dir/src/Object.cpp.obj: CMakeFiles/Build.dir/includes_CXX.rsp
+CMakeFiles/Build.dir/src/Object.cpp.obj: src/Object.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\SDL-Bubbles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Build.dir/src/Object.cpp.obj"
+	D:\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Build.dir\src\Object.cpp.obj -c D:\SDL-Bubbles\src\Object.cpp
+
+CMakeFiles/Build.dir/src/Object.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Build.dir/src/Object.cpp.i"
+	D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\SDL-Bubbles\src\Object.cpp > CMakeFiles\Build.dir\src\Object.cpp.i
+
+CMakeFiles/Build.dir/src/Object.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Build.dir/src/Object.cpp.s"
+	D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\SDL-Bubbles\src\Object.cpp -o CMakeFiles\Build.dir\src\Object.cpp.s
+
+CMakeFiles/Build.dir/src/Player.cpp.obj: CMakeFiles/Build.dir/flags.make
+CMakeFiles/Build.dir/src/Player.cpp.obj: CMakeFiles/Build.dir/includes_CXX.rsp
+CMakeFiles/Build.dir/src/Player.cpp.obj: src/Player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\SDL-Bubbles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Build.dir/src/Player.cpp.obj"
+	D:\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Build.dir\src\Player.cpp.obj -c D:\SDL-Bubbles\src\Player.cpp
+
+CMakeFiles/Build.dir/src/Player.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Build.dir/src/Player.cpp.i"
+	D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\SDL-Bubbles\src\Player.cpp > CMakeFiles\Build.dir\src\Player.cpp.i
+
+CMakeFiles/Build.dir/src/Player.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Build.dir/src/Player.cpp.s"
+	D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\SDL-Bubbles\src\Player.cpp -o CMakeFiles\Build.dir\src\Player.cpp.s
+
 # Object files for target Build
 Build_OBJECTS = \
-"CMakeFiles/Build.dir/src/Main.cpp.obj"
+"CMakeFiles/Build.dir/src/Main.cpp.obj" \
+"CMakeFiles/Build.dir/src/Drawable.cpp.obj" \
+"CMakeFiles/Build.dir/src/Object.cpp.obj" \
+"CMakeFiles/Build.dir/src/Player.cpp.obj"
 
 # External object files for target Build
 Build_EXTERNAL_OBJECTS =
 
 Build.exe: CMakeFiles/Build.dir/src/Main.cpp.obj
+Build.exe: CMakeFiles/Build.dir/src/Drawable.cpp.obj
+Build.exe: CMakeFiles/Build.dir/src/Object.cpp.obj
+Build.exe: CMakeFiles/Build.dir/src/Player.cpp.obj
 Build.exe: CMakeFiles/Build.dir/build.make
 Build.exe: CMakeFiles/Build.dir/linklibs.rsp
 Build.exe: CMakeFiles/Build.dir/objects1.rsp
 Build.exe: CMakeFiles/Build.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\SDL-Bubbles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Build.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\SDL-Bubbles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Build.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Build.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

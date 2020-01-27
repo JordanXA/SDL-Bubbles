@@ -4,7 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "D:/SDL-Bubbles/src/Drawable.cpp" "D:/SDL-Bubbles/CMakeFiles/Build.dir/src/Drawable.cpp.obj"
   "D:/SDL-Bubbles/src/Main.cpp" "D:/SDL-Bubbles/CMakeFiles/Build.dir/src/Main.cpp.obj"
+  "D:/SDL-Bubbles/src/Object.cpp" "D:/SDL-Bubbles/CMakeFiles/Build.dir/src/Object.cpp.obj"
+  "D:/SDL-Bubbles/src/Player.cpp" "D:/SDL-Bubbles/CMakeFiles/Build.dir/src/Player.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
