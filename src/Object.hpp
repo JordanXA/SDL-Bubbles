@@ -16,6 +16,7 @@ class Object : public Drawable {
         Vector2f velocity;
 
         void setVelocity(float x, float y);
+        void setVelocity(Vector2f newVelocity);
         
         //call every frame to move based on the object's velocity
         void tickMove();

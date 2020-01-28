@@ -36,11 +36,16 @@ void handleInput(SDL_Event& events);
 ///
 
 
+///DEFINITELY CHANGE THIS BUT IM SUPER LAZY
+bool kUp, kDown, kLeft, kRight;
+
 
 int main(int argc, char** argv) {
     SDL_Log("Hello World!");
 
     init();
+
+    SDL_Log("peepee");
 
     //Event handler
     SDL_Event eventHandler;
@@ -51,21 +56,44 @@ int main(int argc, char** argv) {
     tylerObject.setTexture(tylerTexture, 96, 96);
     tylerObject.setVelocity(0.001f, 0);
 
+    SharedTexture sansTexture = make_shared(loadTexture("sans.png"));
+    Object sans = Object();
+    sans.setTexture(sansTexture, 256, 256);
+    sans.position = Vector2f{256,256};
+
     while(!quit) {
         
         handleInput(eventHandler);
 
         tylerObject.tickMove();
+        sans.tickMove();
 
         //Clear screen
         SDL_RenderClear( renderer );
 
         renderDrawable(tylerObject);
+        renderDrawable(sans);
 
         //Update screen
         SDL_RenderPresent( renderer );
         
         //SDL_Log("hey!");
+
+        { //temp movement thingy
+            Vector2f newVelocity {0,0};
+
+            float speed = 0.04f;
+
+            if(kUp) newVelocity.y -= speed;
+            if(kDown) newVelocity.y += speed;
+            if(kLeft) newVelocity.x -= speed;
+            if(kRight) newVelocity.x += speed;
+            
+            
+
+            sans.setVelocity(newVelocity);
+
+        }
 
     }
 
@@ -93,6 +121,46 @@ void handleInput(SDL_Event& events) {
             if( events.type == SDL_QUIT ) {
                 quit = true;
             }
+            if (events.type == SDL_KEYDOWN ) {
+                switch (events.key.keysym.sym) {
+                    case SDLK_UP:
+                    kUp = true;
+                    break;
+
+                    case SDLK_DOWN:
+                    kDown = true;
+                    break;
+
+                    case SDLK_LEFT:
+                    kLeft = true;
+                    break;
+
+                    case SDLK_RIGHT:
+                    kRight = true;
+                    break;
+                }
+            }
+
+            if (events.type == SDL_KEYUP ) {
+                switch (events.key.keysym.sym) {
+                    case SDLK_UP:
+                    kUp = false;
+                    break;
+
+                    case SDLK_DOWN:
+                    kDown = false;
+                    break;
+
+                    case SDLK_LEFT:
+                    kLeft = false;
+                    break;
+
+                    case SDLK_RIGHT:
+                    kRight = false;
+                    break;
+                }
+            }
+
         }
 }
 
@@ -167,9 +235,13 @@ SDL_Surface* imgToSurface( std::string path) {
     size_t dotPos = path.find_last_of(".");
     std::string extension = path.substr(dotPos);
 
-    printf(extension.c_str());
+    //SDL_Log(extension.compare(".bmp"));
 
-    newSurface = SDL_LoadBMP(path.c_str());
+    if(extension.compare(".bmp") == 0)
+        newSurface = SDL_LoadBMP(path.c_str());
+    else if (extension.compare(".png") == 0)
+        newSurface = IMG_Load(path.c_str());
+    
     if( newSurface == NULL ) {
         SDL_Log( "Unable to load image %s! SDL Error: %s\n", path.c_str(), SDL_GetError() );
         return nullptr;

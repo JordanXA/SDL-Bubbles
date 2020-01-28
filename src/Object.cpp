@@ -5,6 +5,10 @@ void Object::setVelocity(float x, float y) {
     velocity.y = y;
 }
 
+void Object::setVelocity(Vector2f newVelocity) {
+    velocity = newVelocity;
+}
+
 void Object::tickMove() {
     position.x += velocity.x;
     position.y += velocity.y;
