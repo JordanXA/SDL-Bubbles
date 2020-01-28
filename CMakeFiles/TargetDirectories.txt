@@ -1,3 +1,0 @@
-D:/SDL-Bubbles/CMakeFiles/Build.dir
-D:/SDL-Bubbles/CMakeFiles/edit_cache.dir
-D:/SDL-Bubbles/CMakeFiles/rebuild_cache.dir
