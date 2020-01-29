@@ -25,6 +25,7 @@ SDL_Surface* imgToSurface( std::string path);
 SDL_Texture* loadTexture( std::string path );
 void renderDrawable(Drawable& obj);
 void handleInput(SDL_Event& events);
+int playerInput;
 
 ///stuff frm internet
 //https://stackoverflow.com/questions/18682868/assigning-stdshared-ptr
@@ -35,9 +36,10 @@ void handleInput(SDL_Event& events);
     }
 ///
 
+//bool kUp, kDown, kLeft, kRight;
 
-///DEFINITELY CHANGE THIS BUT IM SUPER LAZY
-bool kUp, kDown, kLeft, kRight;
+SharedTexture sansTexture = make_shared(loadTexture("sans.png"));
+Player player = Player();
 
 
 int main(int argc, char** argv) {
@@ -56,44 +58,30 @@ int main(int argc, char** argv) {
     tylerObject.setTexture(tylerTexture, 96, 96);
     tylerObject.setVelocity(0.001f, 0);
 
-    SharedTexture sansTexture = make_shared(loadTexture("sans.png"));
-    Object sans = Object();
-    sans.setTexture(sansTexture, 256, 256);
-    sans.position = Vector2f{256,256};
+    player.setTexture(sansTexture, 256, 256);
+    player.position = Vector2f{256,256};
 
     while(!quit) {
         
         handleInput(eventHandler);
 
+        player.inputUpdate(playerInput);
+
         tylerObject.tickMove();
-        sans.tickMove();
+        player.tickMove();
 
         //Clear screen
         SDL_RenderClear( renderer );
 
         renderDrawable(tylerObject);
-        renderDrawable(sans);
+        renderDrawable(player);
 
         //Update screen
         SDL_RenderPresent( renderer );
         
         //SDL_Log("hey!");
 
-        { //temp movement thingy
-            Vector2f newVelocity {0,0};
 
-            float speed = 0.04f;
-
-            if(kUp) newVelocity.y -= speed;
-            if(kDown) newVelocity.y += speed;
-            if(kLeft) newVelocity.x -= speed;
-            if(kRight) newVelocity.x += speed;
-            
-            
-
-            sans.setVelocity(newVelocity);
-
-        }
 
     }
 
@@ -114,6 +102,7 @@ void renderDrawable(Drawable& obj) {
     SDL_RenderCopy( renderer, obj.getTexturePtr(), nullptr, &renderRect );
 }
 
+
 void handleInput(SDL_Event& events) {
         //Handle events on queue
         while( SDL_PollEvent( &events ) != 0 ) {
@@ -124,11 +113,11 @@ void handleInput(SDL_Event& events) {
             if (events.type == SDL_KEYDOWN ) {
                 switch (events.key.keysym.sym) {
                     case SDLK_UP:
-                    kUp = true;
+                    playerInput = playerInput | INFLAG_UP;
                     break;
 
                     case SDLK_DOWN:
-                    kDown = true;
+                    kDown = true; //TODO: finish
                     break;
 
                     case SDLK_LEFT:
