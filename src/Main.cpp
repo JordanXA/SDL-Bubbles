@@ -7,6 +7,7 @@
 #include "Drawable.hpp"
 #include "Object.hpp"
 #include "Player.hpp"
+#include "Input.hpp"
 
 const int SCREEN_WIDTH = 640, SCREEN_HEIGHT = 480;
 
@@ -24,8 +25,7 @@ int init();
 SDL_Surface* imgToSurface( std::string path);
 SDL_Texture* loadTexture( std::string path );
 void renderDrawable(Drawable& obj);
-void handleInput(SDL_Event& events);
-int playerInput;
+int player1Input;
 
 ///stuff frm internet
 //https://stackoverflow.com/questions/18682868/assigning-stdshared-ptr
@@ -36,10 +36,7 @@ int playerInput;
     }
 ///
 
-//bool kUp, kDown, kLeft, kRight;
 
-SharedTexture sansTexture = make_shared(loadTexture("sans.png"));
-Player player = Player();
 
 
 int main(int argc, char** argv) {
@@ -52,21 +49,25 @@ int main(int argc, char** argv) {
     //Event handler
     SDL_Event eventHandler;
 
+    Input input(eventHandler, quit);
+
+    SharedTexture sansTexture = make_shared(loadTexture("sans.png"));
     SharedTexture tylerTexture = make_shared(loadTexture("tyler.bmp"));
+    
+    Player player = Player();
     Object tylerObject = Object();
     tylerObject.position = Vector2f{96,96};
     tylerObject.setTexture(tylerTexture, 96, 96);
     tylerObject.setVelocity(0.001f, 0);
 
-    player.setTexture(sansTexture, 256, 256);
-    player.position = Vector2f{256,256};
+    player.setTexture(sansTexture, 128, 128);
+    player.position = Vector2f{128,128};
 
     while(!quit) {
         
-        handleInput(eventHandler);
-
-        player.inputUpdate(playerInput);
-
+        input.update();
+        player.inputUpdate();
+        
         tylerObject.tickMove();
         player.tickMove();
 
@@ -100,57 +101,6 @@ void renderDrawable(Drawable& obj) {
     SDL_Rect renderRect = obj.getRect();
 
     SDL_RenderCopy( renderer, obj.getTexturePtr(), nullptr, &renderRect );
-}
-
-
-void handleInput(SDL_Event& events) {
-        //Handle events on queue
-        while( SDL_PollEvent( &events ) != 0 ) {
-            //User requests quit
-            if( events.type == SDL_QUIT ) {
-                quit = true;
-            }
-            if (events.type == SDL_KEYDOWN ) {
-                switch (events.key.keysym.sym) {
-                    case SDLK_UP:
-                    playerInput = playerInput | INFLAG_UP;
-                    break;
-
-                    case SDLK_DOWN:
-                    kDown = true; //TODO: finish
-                    break;
-
-                    case SDLK_LEFT:
-                    kLeft = true;
-                    break;
-
-                    case SDLK_RIGHT:
-                    kRight = true;
-                    break;
-                }
-            }
-
-            if (events.type == SDL_KEYUP ) {
-                switch (events.key.keysym.sym) {
-                    case SDLK_UP:
-                    kUp = false;
-                    break;
-
-                    case SDLK_DOWN:
-                    kDown = false;
-                    break;
-
-                    case SDLK_LEFT:
-                    kLeft = false;
-                    break;
-
-                    case SDLK_RIGHT:
-                    kRight = false;
-                    break;
-                }
-            }
-
-        }
 }
 
 //Initialize SDL
