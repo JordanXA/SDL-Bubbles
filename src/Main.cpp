@@ -20,8 +20,6 @@ int init();
     //The renderer
     SDL_Renderer* renderer = NULL;
 
-    bool quit;
-
 SDL_Surface* imgToSurface( std::string path);
 SDL_Texture* loadTexture( std::string path );
 void renderDrawable(Drawable& obj);
@@ -49,7 +47,7 @@ int main(int argc, char** argv) {
     //Event handler
     SDL_Event eventHandler;
 
-    Input input(eventHandler, quit);
+    Input input(eventHandler);
 
     SharedTexture sansTexture = make_shared(loadTexture("sans.png"));
     SharedTexture tylerTexture = make_shared(loadTexture("tyler.bmp"));
@@ -63,10 +61,10 @@ int main(int argc, char** argv) {
     player.setTexture(sansTexture, 128, 128);
     player.position = Vector2f{128,128};
 
-    while(!quit) {
+    while(!input.quit) {
         
-        input.update();
-        player.inputUpdate();
+        input.inputUpdate();
+        player.inputUpdate(input.plyr1flags);
         
         tylerObject.tickMove();
         player.tickMove();

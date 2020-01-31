@@ -14,5 +14,5 @@ enum PlrInputFlag {
 
 class Player : public Object {
     public:
-        void inputUpdate();
+        void inputUpdate(int inFlags);
 };

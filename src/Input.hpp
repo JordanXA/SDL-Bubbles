@@ -2,13 +2,13 @@
 
 class Input {
     public:
-
-        Input(SDL_Event& eventsRef, bool& quitRef) : events(eventsRef), quit(quitRef)
+        Input(SDL_Event& eventsRef) : events(eventsRef)
         {
         }
 
         SDL_Event& events;
-        bool& quit;
+        bool quit;
+        int plyr1flags;
 
         void inputUpdate() {
             //Handle events on queue
@@ -21,19 +21,19 @@ class Input {
                 if (events.type == SDL_KEYDOWN ) {
                     switch (events.key.keysym.sym) {
                         case SDLK_UP:
-                        flags = flags | INFLAG_UP;
+                        plyr1flags = plyr1flags | INFLAG_UP;
                         break;
 
                         case SDLK_DOWN:
-                        flags = flags | INFLAG_DOWN;
+                        plyr1flags = plyr1flags | INFLAG_DOWN;
                         break;
 
                         case SDLK_LEFT:
-                        flags = flags | INFLAG_LEFT;
+                        plyr1flags = plyr1flags | INFLAG_LEFT;
                         break;
 
                         case SDLK_RIGHT:
-                        flags = flags | INFLAG_RIGHT;
+                        plyr1flags = plyr1flags | INFLAG_RIGHT;
                         break;
                     }
                 }
@@ -41,19 +41,19 @@ class Input {
                 if (events.type == SDL_KEYUP ) {
                     switch (events.key.keysym.sym) {
                         case SDLK_UP:
-                        flags = flags & ~INFLAG_UP;
+                        plyr1flags = plyr1flags & ~INFLAG_UP;
                         break;
 
                         case SDLK_DOWN:
-                        flags = flags & ~INFLAG_DOWN;
+                        plyr1flags = plyr1flags & ~INFLAG_DOWN;
                         break;
 
                         case SDLK_LEFT:
-                        flags = flags & ~INFLAG_LEFT;
+                        plyr1flags = plyr1flags & ~INFLAG_LEFT;
                         break;
 
                         case SDLK_RIGHT:
-                        flags = flags & ~INFLAG_RIGHT;
+                        plyr1flags = plyr1flags & ~INFLAG_RIGHT;
                         break;
                     }
                 }
