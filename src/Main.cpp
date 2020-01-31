@@ -8,6 +8,7 @@
 #include "Object.hpp"
 #include "Player.hpp"
 #include "Input.hpp"
+#include "Enemies.hpp"
 
 const int SCREEN_WIDTH = 640, SCREEN_HEIGHT = 480;
 
@@ -53,12 +54,12 @@ int main(int argc, char** argv) {
     SharedTexture tylerTexture = make_shared(loadTexture("tyler.bmp"));
     
     Player player = Player();
-    Object tylerObject = Object();
-    tylerObject.position = Vector2f{96,96};
-    tylerObject.setTexture(tylerTexture, 96, 96);
-    tylerObject.setVelocity(0.001f, 0);
+    SansEnemy testEnemy = SansEnemy();
+    testEnemy.position = Vector2f{96,96};
+    testEnemy.setTexture(sansTexture, 96, 96);
+    testEnemy.setVelocity(0.001f, 0);
 
-    player.setTexture(sansTexture, 128, 128);
+    player.setTexture(tylerTexture, 32, 32);
     player.position = Vector2f{128,128};
 
     while(!input.quit) {
@@ -66,14 +67,14 @@ int main(int argc, char** argv) {
         input.inputUpdate();
         player.inputUpdate(input.plyr1flags);
         
-        tylerObject.tickMove();
+        testEnemy.tickMove();
         player.tickMove();
 
         //Clear screen
         SDL_RenderClear( renderer );
 
-        renderDrawable(tylerObject);
         renderDrawable(player);
+        renderDrawable(testEnemy);
 
         //Update screen
         SDL_RenderPresent( renderer );
